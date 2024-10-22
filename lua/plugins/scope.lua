@@ -1,0 +1,2 @@
+return { "tiagovla/scope.nvim",
+}
