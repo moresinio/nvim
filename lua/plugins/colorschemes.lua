@@ -12,6 +12,71 @@ return {
 		end,
 	},
 	{
+		'ray-x/starry.nvim',
+		lazy = false,
+		priority = 1000,
+		config = function()
+			local config = {
+				style = {
+					name = 'darker_contrast', -- Theme style name (moonlight, earliestsummer, etc.)
+					-- " other themes: dracula, oceanic, dracula_blood, 'deep ocean', darker, palenight, monokai, mariana, emerald, middlenight_blue
+					disable = {},        -- a list of styles to disable, e.g. {'bold', 'underline'}
+					fix = true,
+					darker_contrast = false, -- More contrast for darker style
+					daylight_swith = false, -- Enable day and night style switching
+					deep_black = false,  -- Enable a deeper black background
+				},
+			}
+			require("starry").setup(config)
+			--vim.cmd("colorscheme starry")
+		end
+	},
+	{
+		'kdheepak/monochrome.nvim',
+		lazy = false,
+		priority = 1000,
+		config = function()
+			--vim.cmd 'colorscheme monochrome'
+		end
+	}, {
+	'maxmx03/fluoromachine.nvim',
+	lazy = false,
+	priority = 1000,
+	config = function()
+		local fm = require 'fluoromachine'
+
+		fm.setup {
+			glow = false,
+			theme = 'fluoromachine', --delta fluoromachine retrowave
+			transparent = false,
+		}
+		vim.cmd.colorscheme 'fluoromachine'
+	end
+},
+	-- this theme needs transparent background
+	{
+		"scottmckendry/cyberdream.nvim",
+		enabled = false,
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("cyberdream").setup({
+				-- Enable transparent background
+				transparent = false,
+				borderless_telescope = true,
+			})
+			--vim.cmd("colorscheme cyberdream")
+		end
+	},
+	{
+		"nyoom-engineering/oxocarbon.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			--	vim.cmd("colorscheme oxocarbon")
+		end,
+	},
+	{
 		"lmburns/kimbox",
 		lazy = false,
 		priority = 1000,
@@ -22,11 +87,12 @@ return {
 			--	vim.cmd [[colorscheme kimbox]]
 		end,
 	},
-	{ "catppuccin/nvim",
+	{
+		"catppuccin/nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-	--		vim.cmd [[colorscheme catppuccin]]
+			--		vim.cmd [[colorscheme catppuccin]]
 		end,
 	},
 	{
@@ -34,7 +100,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd [[colorscheme tokyonight-night]]
+			--	vim.cmd [[colorscheme tokyonight-night]]
 		end,
 		opts = {
 		}

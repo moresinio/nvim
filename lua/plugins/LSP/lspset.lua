@@ -14,6 +14,18 @@ lspconfig.bashls.setup {
 		},
 	},
 }
+lspconfig.pyright.setup {
+	settings = {
+		['pyright'] = {
+		},
+	},
+}
+lspconfig.cssls.setup {
+	settings = {
+		['cssls'] = {
+		},
+	},
+}
 lspconfig.lua_ls.setup {
 	settings = {
 		['lua_ls'] = {
