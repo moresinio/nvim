@@ -18,13 +18,13 @@ return {
 		config = function()
 			local config = {
 				style = {
-					name = 'darker_contrast', -- Theme style name (moonlight, earliestsummer, etc.)
+					name = 'dracula_blood', -- Theme style name (moonlight, earliestsummer, etc.)
 					-- " other themes: dracula, oceanic, dracula_blood, 'deep ocean', darker, palenight, monokai, mariana, emerald, middlenight_blue
-					disable = {},        -- a list of styles to disable, e.g. {'bold', 'underline'}
+					disable = {},       -- a list of styles to disable, e.g. {'bold', 'underline'}
 					fix = true,
 					darker_contrast = false, -- More contrast for darker style
 					daylight_swith = false, -- Enable day and night style switching
-					deep_black = false,  -- Enable a deeper black background
+					deep_black = false, -- Enable a deeper black background
 				},
 			}
 			require("starry").setup(config)
@@ -43,13 +43,21 @@ return {
 	lazy = false,
 	priority = 1000,
 	config = function()
-		local fm = require 'fluoromachine'
-
-		fm.setup {
+		require('fluoromachine').setup({
 			glow = false,
 			theme = 'fluoromachine', --delta fluoromachine retrowave
 			transparent = false,
-		}
+			styles = {
+				comments = { italic = true, },
+				functions = { italic = true, },
+				variables = {},
+				numbers = {},
+				constants = {},
+				parameters = {},
+				keywords = {},
+				types = {},
+			},
+		})
 		vim.cmd.colorscheme 'fluoromachine'
 	end
 },
@@ -82,7 +90,9 @@ return {
 		priority = 1000,
 		config = function()
 			require("kimbox").setup({
-				style = "eerie" -- 'burnt_coffee', no 'cannon', 'used_oil', 'deep', 'zinnwaldite', 'eerie',
+				style = "eerie", -- 'burnt_coffee', no 'cannon', 'used_oil', 'deep', 'zinnwaldite', 'eerie',
+				allow_italic = true,
+				toggle_style = { key = "" },
 			})
 			--	vim.cmd [[colorscheme kimbox]]
 		end,

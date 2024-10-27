@@ -8,6 +8,8 @@ map("n", "<M-j>", "<C-w>j", { desc = "Focus to right-side window" })
 map("n", "<M-k>", "<C-w>k", { desc = "Focus to top-side window" })
 map("n", "<M-l>", "<C-w>l", { desc = "Focus to bottom-side window" })
 
+map("n", "<M-c>", "<C-w>c", { desc = "Close window" })
+
 map("n", "<leader>\\", "<c-w>v", { desc = "Split window right" })
 
 map("n", "S", '"_S', { desc = "'S' without copying to clipboard" })
@@ -50,11 +52,14 @@ wk.add({
 
 	{ "<leader>;",  "<cmd>Alpha<CR>",                                     desc = "Dashboard" },
 	{ "<leader>L",  "<cmd>Lazy<CR>",                                      desc = "Lazy" },
-	{ "<leader>h",  "<cmd>nohlsearch<CR>",                                desc = "No Highlight" },
 
 	{ "<leader>S",  group = "Session" },
 	{ "<leader>Sl", "<cmd>SessionLoad<cr>",                               desc = "Session load" },
 	{ "<leader>Ss", "<cmd>SessionSave<cr>",                               desc = "Session save" },
+
+	{ "<leader>t",  group = "Toggle/Off" },
+	{ "<leader>th",  "<cmd>nohlsearch<CR>",                                desc = "No Highlight" },
+	{ "<leader>tc",  "<cmd>ColorizerToggle<CR>",                                desc = "ColorizerToggle" },
 
 	{ "<leader>s",  group = "Search" },
 	{ "<leader>sC", "<cmd>Telescope commands<cr>",                        desc = "Commands" },
