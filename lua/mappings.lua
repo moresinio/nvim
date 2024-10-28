@@ -35,6 +35,8 @@ wk.add({
 	{ "<leader>ba", "<cmd>Telescope scope buffers<cr>",                   desc = "All buffers via Telescope" },
 	{ "<leader>bm", "<cmd>ScopeMoveBuf<cr>",                              desc = "Move buffer to tab" },
 	{ "<leader>bC", "<cmd>BDelete other<cr>",                             desc = "Delete all buffer except focused" },
+	{ "<leader>bc", "<cmd>lua require('cokeline.mappings').pick('close')<cr>",
+																																				desc = "Close buffer its by pick letter" },
 
 	{ "<leader>E",  group = "Explorer" },
 	{ "<leader>Ef", "<cmd>Neotree float<cr>",                             desc = "Neotree float" },

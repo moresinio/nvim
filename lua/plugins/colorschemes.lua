@@ -98,14 +98,6 @@ return {
 		end,
 	},
 	{
-		"catppuccin/nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			--		vim.cmd [[colorscheme catppuccin]]
-		end,
-	},
-	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
@@ -126,7 +118,7 @@ return {
 				---Controls the "hardness" of the background. Options are "soft", "medium" or "hard".
 				---Default is "medium".
 				background = "soft", -- Your config here
-				italics = false,
+				italics = true,
 				--vim.cmd([[colorscheme everforest]])
 			})
 		end,

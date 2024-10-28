@@ -17,9 +17,30 @@ return {
 		local bg_color = get_hl_attr('Normal', 'bg')
 		local error_color = get_hl_attr('DiagnosticError', 'fg')
 		local ok_color = get_hl_attr('DiagnosticOk', 'fg')
-		local pick_color = get_hl_attr('CursorLineNr', 'fg')
+		local pick_color = get_hl_attr('Conditional', 'fg')
 		local is_picking_focus = require('cokeline.mappings').is_picking_focus
 		local is_picking_close = require('cokeline.mappings').is_picking_close
+
+		local function tab_num_replace(value)
+			local cases = {
+				[1] = function()
+					return "󰲡"
+				end,
+				[2] = function()
+					return "󰲣"
+				end,
+				[3] = function()
+					return "󰲥"
+				end,
+				[4] = function()
+					return "󰲧"
+				end,
+				[5] = function()
+					return "󰲩"
+				end,
+			}
+			return (cases[value] or function() return value end)()
+		end
 
 		require('cokeline').setup({
 			show_if_buffers_are_at_least = 1,
@@ -70,7 +91,7 @@ return {
 					fg = bg_color_active,
 				},
 				{
-					text = "󱃢  ", --'󰎦 󰬺 󰎤 󰲠 󰲡 ',
+					text = "󰓩  ", --'󰎦 󰬺 󰎤 󰲠 󰲡 ',
 					fg = fg_color_active,
 					bg = bg_color_active,
 				},
@@ -81,7 +102,7 @@ return {
 				components = {
 					{
 						text = function(tabpage)
-							return '[' .. tabpage.number .. '] '
+							return tab_num_replace(tabpage.number) .. ' '
 						end,
 						fg =
 								function(tabpage)
@@ -127,11 +148,7 @@ return {
 						end
 					end
 				},
-				--pick_letter
-				--{
-				--	text = function(buffer) return buffer.pick_letter .. ' ' end,
-				--	style = 'italic',
-				--},
+
 				{
 					text = function(buffer)
 						local status = ''
@@ -141,18 +158,19 @@ return {
 						return status
 					end,
 				},
+
 				{
 					text = function(buffer)
 						return (is_picking_focus() or is_picking_close())
 								and ' ' .. buffer.pick_letter .. ' '
 								or ' ' .. buffer.devicon.icon
 					end,
-      fg = function(buffer)
-        return
-          (is_picking_focus() and pick_color)
-          or (is_picking_close() and pick_color)
-          or buffer.devicon.color
-      end,
+					fg = function(buffer)
+						return
+								(is_picking_focus() and pick_color)
+								or (is_picking_close() and pick_color)
+								or buffer.devicon.color
+					end,
 					italic = function()
 						return
 								(is_picking_focus() or is_picking_close())
@@ -162,6 +180,7 @@ return {
 								(is_picking_focus() or is_picking_close())
 					end
 				},
+
 				{
 					text = function(buffer)
 						return buffer.unique_prefix .. buffer.filename
@@ -185,7 +204,13 @@ return {
 							return true
 						end
 					end,
+					undercurl = function(buffer)
+						if buffer.diagnostics.errors > 0 then
+							return true
+						end
+					end,
 				},
+
 				{
 					---@param buffer Buffer
 					text = function(buffer)
@@ -205,9 +230,9 @@ return {
 					end,
 					fg = function(buffer)
 						if buffer.is_modified then
-							--	if (buffer.diagnostics.errors > 0) then
-							--		return error_color
-							--	end
+							if (buffer.diagnostics.errors > 0) then
+								return error_color
+							end
 							return ok_color
 						end
 						--	if (buffer.diagnostics.errors > 0) then
@@ -219,6 +244,7 @@ return {
 						buffer:delete()
 					end,
 				},
+
 				{
 					text = function(buffer)
 						if buffer.is_focused or buffer.is_last then
