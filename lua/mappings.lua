@@ -17,17 +17,24 @@ map("n", "C", '"_C', { desc = "'C' without copying to clipboard" })
 map("n", "D", '"_D', { desc = "'D' without copying to clipboard" })
 
 -- see "gbprod/yanky.nvim",
-map({"n","x"}, "p", "<Plug>(YankyPutAfter)")
-map({"n","x"}, "P", "<Plug>(YankyPutBefore)")
-map({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
-map({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+map({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+map({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+map({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+map({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 map("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
 map("n", "<c-n>", "<Plug>(YankyNextEntry)")
+
+map("n", "<leader>f", function()
+	require('cokeline.mappings').pick("focus")
+end, { desc = "Pick a buffer to focus by letter" })
 
 local wk = require("which-key")
 wk.add({
 	{ "<leader>b",  group = "Buffers" },
-	{ "<leader>bb", "<cmd>Telescope buffers<cr>",                         desc = "Buffers" },
+	{ "<leader>bb", "<cmd>Telescope buffers<cr>",                         desc = "Buffers in current tab via Telescope" },
+	{ "<leader>ba", "<cmd>Telescope scope buffers<cr>",                   desc = "All buffers via Telescope" },
+	{ "<leader>bm", "<cmd>ScopeMoveBuf<cr>",                              desc = "Move buffer to tab" },
+	{ "<leader>bC", "<cmd>BDelete other<cr>",                             desc = "Delete all buffer except focused" },
 
 	{ "<leader>E",  group = "Explorer" },
 	{ "<leader>Ef", "<cmd>Neotree float<cr>",                             desc = "Neotree float" },
@@ -58,8 +65,8 @@ wk.add({
 	{ "<leader>Ss", "<cmd>SessionSave<cr>",                               desc = "Session save" },
 
 	{ "<leader>t",  group = "Toggle/Off" },
-	{ "<leader>th",  "<cmd>nohlsearch<CR>",                                desc = "No Highlight" },
-	{ "<leader>tc",  "<cmd>ColorizerToggle<CR>",                                desc = "ColorizerToggle" },
+	{ "<leader>th", "<cmd>nohlsearch<CR>",                                desc = "No Highlight" },
+	{ "<leader>tc", "<cmd>ColorizerToggle<CR>",                           desc = "ColorizerToggle" },
 
 	{ "<leader>s",  group = "Search" },
 	{ "<leader>sC", "<cmd>Telescope commands<cr>",                        desc = "Commands" },

@@ -15,7 +15,7 @@ return {
 			{ 'ga',         '<cmd>lua vim.lsp.buf.code_action()<cr>',    desc = "Code action" },
 			{ 'gr',         '<cmd>lua vim.lsp.buf.rename()<cr>',         desc = "Rename" },
 			{ 'gR',         '<cmd>lua vim.lsp.buf.references()<cr>',     desc = "References" },
-			{ '<leader>ff', '<cmd>lua vim.lsp.buf.format()<cr>',         desc = "Format" },
+			{ '<leader>F', '<cmd>lua vim.lsp.buf.format()<cr>',         desc = "Formatting" },
 			{ 'gD',         '<cmd>lua vim.lsp.buf.declaration()<cr>',    desc = "Declaration" },
 			{ 'gd',         '<cmd>lua vim.lsp.buf.definition()<cr>',     desc = "Definition" },
 			{ 'K',          '<cmd>lua vim.lsp.buf.hover()<cr>',          desc = "Hover" },

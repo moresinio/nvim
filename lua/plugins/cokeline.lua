@@ -17,6 +17,9 @@ return {
 		local bg_color = get_hl_attr('Normal', 'bg')
 		local error_color = get_hl_attr('DiagnosticError', 'fg')
 		local ok_color = get_hl_attr('DiagnosticOk', 'fg')
+		local pick_color = get_hl_attr('CursorLineNr', 'fg')
+		local is_picking_focus = require('cokeline.mappings').is_picking_focus
+		local is_picking_close = require('cokeline.mappings').is_picking_close
 
 		require('cokeline').setup({
 			show_if_buffers_are_at_least = 1,
@@ -37,12 +40,15 @@ return {
 					{
 						text =
 								function(buf)
-									return buf.filetype
+									return "   " .. buf.filetype
 								end,
 						fg =
 								function(buffer)
 									return fg_color_active
-								end
+								end,
+						truncation = {
+							direction = "middle"
+						},
 					},
 
 				},
@@ -64,7 +70,7 @@ return {
 					fg = bg_color_active,
 				},
 				{
-					text = "󱃢 ", --'󰎦 󰬺 󰎤 󰲠 󰲡 ',
+					text = "󱃢  ", --'󰎦 󰬺 󰎤 󰲠 󰲡 ',
 					fg = fg_color_active,
 					bg = bg_color_active,
 				},
@@ -75,7 +81,7 @@ return {
 				components = {
 					{
 						text = function(tabpage)
-							return '[' .. tabpage.number .. '] |'
+							return '[' .. tabpage.number .. '] '
 						end,
 						fg =
 								function(tabpage)
@@ -83,16 +89,8 @@ return {
 										return fg_color_active
 									end
 								end,
-						bg = function(tabpage)
-							if tabpage.is_active then
-								return bg_color_active
-							end
-						end,
+						bg = bg_color_active
 					},
-					--	{
-					--		text = "/",
-					--		fg = bg_color_active,
-					--	},
 				}
 			},
 
@@ -129,9 +127,9 @@ return {
 						end
 					end
 				},
-				--index
+				--pick_letter
 				--{
-				--	text = function(buffer) return buffer.index .. ' ' end,
+				--	text = function(buffer) return buffer.pick_letter .. ' ' end,
 				--	style = 'italic',
 				--},
 				{
@@ -145,12 +143,23 @@ return {
 				},
 				{
 					text = function(buffer)
-						return " " .. buffer.devicon.icon
+						return (is_picking_focus() or is_picking_close())
+								and ' ' .. buffer.pick_letter .. ' '
+								or ' ' .. buffer.devicon.icon
 					end,
-					fg = function(buffer)
-						if buffer.is_focused then
-							return buffer.devicon.color
-						end
+      fg = function(buffer)
+        return
+          (is_picking_focus() and pick_color)
+          or (is_picking_close() and pick_color)
+          or buffer.devicon.color
+      end,
+					italic = function()
+						return
+								(is_picking_focus() or is_picking_close())
+					end,
+					bold = function()
+						return
+								(is_picking_focus() or is_picking_close())
 					end
 				},
 				{
