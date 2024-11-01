@@ -1,6 +1,6 @@
 return {
 	"rachartier/tiny-inline-diagnostic.nvim",
-	event = "VeryLazy",
+	event = "InsertEnter",
 	dependencies = {
 		"neovim/nvim-lspconfig",
 		opts = { diagnostics = { virtual_text = false } },

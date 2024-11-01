@@ -104,12 +104,11 @@ return {
 						text = function(tabpage)
 							return tab_num_replace(tabpage.number) .. ' '
 						end,
-						fg =
-								function(tabpage)
-									if tabpage.is_active then
-										return fg_color_active
-									end
-								end,
+						fg = function(tabpage)
+							if tabpage.is_active then
+								return fg_color_active
+							end
+						end,
 						bg = bg_color_active
 					},
 				}
