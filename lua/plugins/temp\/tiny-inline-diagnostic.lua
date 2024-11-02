@@ -9,13 +9,13 @@ return {
 
 	opts = {
 		signs = {
-			left = "",
+			left = " ",
 			right = "",
-			diag = " 󰀨 ",
+			diag = "󰀨 ",
 			arrow = "",
 			up_arrow = " ", --
-			vertical = "",
-			vertical_end = "",
+			vertical = " │",
+			vertical_end = " ╰",
 		},
 		options = {
 			virt_texts = { priority = 5000 },

@@ -1,5 +1,6 @@
 {
   "alpha-nvim": { "branch": "main", "commit": "bf3c8bb8c02ed3d9644cc5bbc48e2bdc39349cd7" },
+  "better-diagnostic-virtual-text": { "branch": "main", "commit": "eb3a77e714aa6c295bdb4f074fccbda637090f6e" },
   "blink.cmp": { "branch": "main", "commit": "917026450f5fa051cda9c538b517f0cf28ceec6f" },
   "clangd_extensions.nvim": { "branch": "main", "commit": "8f7b72100883e0e34400d9518d40a03f21e4d0a6" },
   "close-buffers.nvim": { "branch": "master", "commit": "3acbcad1211572342632a6c0151f839e7dead27f" },
@@ -56,6 +57,7 @@
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b" },
   "telescope-media-files.nvim": { "branch": "master", "commit": "0826c7a730bc4d36068f7c85cf4c5b3fd9fb570a" },
   "telescope.nvim": { "branch": "master", "commit": "85922dde3767e01d42a08e750a773effbffaea3e" },
+  "themery.nvim": { "branch": "main", "commit": "15c29229e9a25655587462c8c64a62d9aadf0a92" },
   "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "25293d87b57ecd901ecc4ffa5dc8868e464f6b54" },
   "tokyonight.nvim": { "branch": "main", "commit": "c3d0838e357cbcc86580a4e06995f1030363591f" },
   "vim-wordmotion": { "branch": "master", "commit": "81d9bd298376ab0dc465c85d55afa4cb8d5f47a1" },
