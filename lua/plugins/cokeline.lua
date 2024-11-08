@@ -123,7 +123,7 @@ return {
 							if buffer.is_first then
 								_text = _text .. ''
 							else
-								_text = _text .. '' --   
+								_text = _text .. '' --█  
 							end
 						end
 						return _text
@@ -150,9 +150,9 @@ return {
 
 				{
 					text = function(buffer)
-						local status = ''
+						local status = ' '
 						if buffer.is_readonly then
-							status = ''
+							status = status .. ''
 						end
 						return status
 					end,
@@ -193,11 +193,11 @@ return {
 							return fg_color_active
 						end
 					end,
-					bold = function(buffer)
-						if buffer.is_focused then
-							return true
-						end
-					end,
+					--bold = function(buffer)
+					--	if buffer.is_focused then
+					--		return true
+					--	end
+					--end,
 					underline = function(buffer)
 						if buffer.is_focused or buffer.is_hovered then
 							return true
@@ -215,17 +215,17 @@ return {
 					text = function(buffer)
 						if buffer.is_modified then
 							if buffer.is_hovered then
-								return " 󰅙"
+								return " 󰅙 "
 							end
 							--		if (buffer.diagnostics.errors > 0) then
 							--			return " 󰈸"
 							--		end
-							return " 󰌪"
+							return " 󰌪 "
 						end
 						if buffer.is_hovered then
-							return " 󰅙" --󰅙 󰅚 󰲡 󱤆 󱤅 󰌪 󰲠 󰪥  󰝥  󰧞 󰧟󰗖  󱠇
+							return " 󰅙 " --󰅙 󰅚 󰲡 󱤆 󱤅 󰌪 󰲠 󰪥  󰝥  󰧞 󰧟󰗖  󱠇
 						end
-						return " 󰅚" --  󰅖
+						return " 󰅚 " --  󰅖
 					end,
 					fg = function(buffer)
 						if buffer.is_modified then
