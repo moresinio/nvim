@@ -55,7 +55,7 @@ return {
 			---@type table | false
 			sidebar = {
 				---@type string | string[]
-				filetype = { "NvimTree", "nnn", "neo-tree", },
+				filetype = { "aerial", "NvimTree", "nnn", "neo-tree", },
 				---@type Component[]
 				components = {
 					{

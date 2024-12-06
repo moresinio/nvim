@@ -32,12 +32,15 @@ end, { desc = "Pick a buffer to focus by letter" })
 local wk = require("which-key")
 wk.add({
 	{ "<leader>b",  group = "Buffers/Tabs/Windows" },
-	{ "<leader>bb", "<cmd>Telescope buffers<cr>",                         desc = "Buffers in current tab via Telescope" },
-	{ "<leader>ba", "<cmd>Telescope scope buffers<cr>",                   desc = "All buffers via Telescope" },
-	{ "<leader>bm", "<cmd>ScopeMoveBuf<cr>",                              desc = "Move buffer to tab" },
-	{ "<leader>bC", "<cmd>BDelete other<cr>",                             desc = "Delete all buffer except focused" },
-	{ "<leader>bc", "<cmd>lua require('cokeline.mappings').pick('close')<cr>",
-																																				desc = "Close buffer its by pick letter" },
+	{ "<leader>bb", "<cmd>Telescope buffers<cr>",       desc = "Buffers in current tab via Telescope" },
+	{ "<leader>ba", "<cmd>Telescope scope buffers<cr>", desc = "All buffers via Telescope" },
+	{ "<leader>bm", "<cmd>ScopeMoveBuf<cr>",            desc = "Move buffer to tab" },
+	{ "<leader>bC", "<cmd>BDelete other<cr>",           desc = "Delete all buffer except focused" },
+	{
+		"<leader>bc",
+		"<cmd>lua require('cokeline.mappings').pick('close')<cr>",
+		desc = "Close buffer its by pick letter"
+	},
 
 	{ "<leader>E",  group = "Explorer" },
 	{ "<leader>Ef", "<cmd>Neotree float<cr>",                             desc = "Neotree float" },
@@ -63,13 +66,15 @@ wk.add({
 	{ "<leader>;",  "<cmd>Alpha<CR>",                                     desc = "Dashboard" },
 	{ "<leader>L",  "<cmd>Lazy<CR>",                                      desc = "Lazy" },
 
+
 	{ "<leader>S",  group = "Session" },
 	{ "<leader>Sl", "<cmd>SessionLoad<cr>",                               desc = "Session load" },
 	{ "<leader>Ss", "<cmd>SessionSave<cr>",                               desc = "Session save" },
 
 	{ "<leader>t",  group = "Toggle/Off" },
 	{ "<leader>th", "<cmd>nohlsearch<CR>",                                desc = "Off search highlighting" },
-	{ "<leader>tc", "<cmd>ColorizerToggle<CR>",                           desc = "ColorizerToggle" },
+	{ "<leader>tc", "<cmd>ColorizerToggle<CR>",                           desc = "Colorizer Toggle" },
+	{ "<leader>tg", "<cmd>Gitsigns toggle_signs<CR>",                     desc = "Gitsigns Toggle" },
 
 	{ "<leader>s",  group = "Search" },
 	{ "<leader>sC", "<cmd>Telescope commands<cr>",                        desc = "Commands" },
@@ -90,4 +95,23 @@ wk.add({
 	},
 	{ "<leader>sr", "<cmd>Telescope oldfiles<cr>",  desc = "Open Recent File" },
 	{ "<leader>st", "<cmd>Telescope live_grep<cr>", desc = "Text" },
+
+	--mode = { "v" },
+	--{ "<leader>i",  group = "Screenshot" },
+	--{ "<leader>ii", function() require("nvim-silicon").shoot() end, desc = "Create code screenshot" },
 })
+
+----{{ Flash and cinnamon integration:
+local flash = require("flash")
+local jump = require("flash.jump")
+local cinnamon = require("cinnamon")
+
+flash.setup({
+  action = function(match, state)
+    cinnamon.scroll(function()
+      jump.jump(match, state)
+      jump.on_jump(state)
+    end)
+  end,
+})
+----}}

@@ -1,6 +1,6 @@
 return {
 	"rachartier/tiny-inline-diagnostic.nvim",
-	enabled = false,
+	enabled = true,
 	event = "InsertEnter",
 	dependencies = {
 		"neovim/nvim-lspconfig",
@@ -20,6 +20,12 @@ return {
 		options = {
 			virt_texts = { priority = 5000 },
 			multilines = true,
+			multiple_diag_under_cursor = true,
+			show_all_diags_on_cursorline = false,
 		},
+            break_line = {
+                enabled = true,
+                after = 30,
+            },
 	},
 }

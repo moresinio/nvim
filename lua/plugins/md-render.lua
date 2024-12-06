@@ -1,5 +1,5 @@
 return {
-	enabled = true,
+	enabled = false,
 	'MeanderingProgrammer/render-markdown.nvim',
 	event = "UIEnter",
 	opts = {},

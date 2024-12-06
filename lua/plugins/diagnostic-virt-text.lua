@@ -1,6 +1,6 @@
 return {
 	'sontungexpt/better-diagnostic-virtual-text',
-	enabled = true,
+	enabled = false,
 	event = "InsertEnter",
 	config = function()
 		require('better-diagnostic-virtual-text').setup({

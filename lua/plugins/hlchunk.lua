@@ -1,7 +1,7 @@
 return {
 	"shellRaining/hlchunk.nvim",
 	enabled = false,
-	event = "UIEnter",
+  event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require('hlchunk').setup({
 			chunk = {
@@ -33,7 +33,7 @@ return {
 				enable = true,
 				use_treesitter = true,
 				chars = {
-					"│",
+					"▏", -- │
 				},
 				style = {
 					{ fg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui") }

@@ -3,6 +3,9 @@ local lspconfig = require('lspconfig')
 lspconfig.clangd.setup {
 	settings = {
 		['clangd'] = {
+			InlayHints = {
+				Enabled = true,
+			}
 		},
 	},
 }

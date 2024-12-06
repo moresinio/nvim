@@ -1,22 +1,3 @@
--- Lsp status take from Wansmer's config
-local function lsp_list()
-	local get_clients = vim.fn.has("nvim-0.10") == 1 and vim.lsp.get_clients or vim.lsp.get_active_clients
-	local buf_clients = get_clients({ bufnr = 0 })
-	local buf_client_names = {}
-
-	for _, client in pairs(buf_clients) do
-		table.insert(buf_client_names, client.name)
-	end
-
-	return table.concat(buf_client_names, ", ")
-end
-
-local lsp_status = function()
-	local lsp = lsp_list()
-	local prefix = (lsp == "" and "LSP Inactive" or "%#LSPStatusActive#%*")
-	return vim.trim(vim.fn.join({ prefix, lsp }, " "))
-end
-
 local icons = require('plugins.Ui.icons')
 local mode_icon_map = {
 	["NORMAL"] = "󰰓",
@@ -71,7 +52,7 @@ return {
 				section_separators = { left = '', right = '' },
 				disabled_filetypes = {
 					statusline = { "dashboard", "lazy", "packer", "alpha" },
-					winbar = { "lazy", "alpha", "nnn", "neo-tree", "dap-repl" } },
+					winbar = { "aerial", "lazy", "alpha", "nnn", "neo-tree", "dap-repl" } },
 				always_divide_middle = true,
 				globalstatus = true,
 			},
@@ -106,26 +87,52 @@ return {
 				lualine_c = {
 				},
 				lualine_x = {
-					{ lsp_status
-						}
+					--{
+					--	"%b"
+					--},
+					{
+						'searchcount',
+					},
+					{
+						function()
+							local buf_clients = vim.lsp.get_clients { bufnr = 0 }
+							if #buf_clients == 0 then
+								return ""
+							end
+
+							local buf_client_names = {}
+
+							-- add client
+							for _, client in pairs(buf_clients) do
+								if client.name ~= "null-ls" and client.name ~= "copilot" then
+									table.insert(buf_client_names, client.name)
+								end
+							end
+
+							local unique_client_names = table.concat(buf_client_names, ", ")
+							--local language_servers = string.format("[%s]", unique_client_names)
+
+							return unique_client_names
+						end,
+						--color = { guifg = "WinSeparator", gui = "italic" },
+						color = { gui = "italic" },
+					},
+					{
+						'encoding',
+						color = { gui = "italic" },
+					},
 				},
 				lualine_y = {
-					--{ 'selectioncount' },
-					--{ 'location' },
-					-- { 'progress',
-					-- 	separator = "",
-					-- },
 					{
-						"%L"
-					},
-					{ progress_cyrcle,
-						separator = "",
-						padding = { left = 1, right = 1 },
+						"%v" .. "|" .. "%L"
 					},
 				},
 				lualine_z = {
-					--{ function() return os.date("%R") end },
-					--	require('tomato').message,
+					{
+						progress_cyrcle,
+						separator = "",
+						--padding = { left = 1, right = 1 },
+					},
 				},
 			},
 
@@ -137,6 +144,9 @@ return {
 					},
 					{
 						'filename',
+						newfile_status = false, -- Display new file status (new file means no write after created)
+						file_status = false, -- Displays file status (readonly status, modified status)
+						shorting_target = 20,
 						path = 3,
 						color = "Comment",
 					}
@@ -150,6 +160,9 @@ return {
 					},
 					{
 						'filename',
+						file_status = false, -- Displays file status (readonly status, modified status)
+						newfile_status = false, -- Display new file status (new file means no write after created)
+						shorting_target = 20,
 						path = 3,
 						color = "Comment",
 					}

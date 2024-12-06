@@ -36,7 +36,7 @@ return {
 				laststatus = 0,            -- turn off the statusline in zen mode
 			},
 			twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
-			gitsigns = { enabled = false }, -- disables git signs
+			gitsigns = { enabled = true }, -- disables git signs
 			tmux = { enabled = false },  -- disables the tmux statusline
 			todo = { enabled = false },  -- if set to "true", todo-comments.nvim highlights will be disabled
 			-- this will change the font size on kitty when in zen mode

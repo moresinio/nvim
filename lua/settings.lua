@@ -74,7 +74,7 @@ opt.wildmode = "longest:full,full" -- Command line completion mode
 opt.smoothscroll = true
 
 -- Подсветка строки с курсором
-opt.cursorline = true
+opt.cursorline = false
 
 -- Нумерация строк
 opt.number = true

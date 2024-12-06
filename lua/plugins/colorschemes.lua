@@ -6,61 +6,44 @@ return {
 		config = function()
 			require('dracula').setup({
 				italic_comment = true, -- default false
-				--lualine_bg_color = "#282A36", -- default nil
 			})
-			--vim.cmd([[colorscheme dracula]])
+			--	vim.cmd([[colorscheme dracula]])
 		end,
 	},
 	{
-		'ray-x/starry.nvim',
-		lazy = false,
+		'kdheepak/monochrome.nvim',
 		priority = 1000,
 		config = function()
-			local config = {
-				style = {
-					name = 'dracula_blood', -- Theme style name (moonlight, earliestsummer, etc.)
-					-- " other themes: dracula, oceanic, dracula_blood, 'deep ocean', darker, palenight, monokai, mariana, emerald, middlenight_blue
-					disable = {},       -- a list of styles to disable, e.g. {'bold', 'underline'}
-					fix = true,
-					darker_contrast = false, -- More contrast for darker style
-					daylight_swith = false, -- Enable day and night style switching
-					deep_black = false, -- Enable a deeper black background
-				},
-			}
-			require("starry").setup(config)
-			--vim.cmd("colorscheme starry")
+			--	vim.cmd 'colorscheme monochrome'
 		end
 	},
 	{
-		'kdheepak/monochrome.nvim',
+		'maxmx03/fluoromachine.nvim',
 		lazy = false,
 		priority = 1000,
 		config = function()
-			--vim.cmd 'colorscheme monochrome'
+			require('fluoromachine').setup({
+				glow = false,
+				theme = 'fluoromachine', --delta fluoromachine retrowave
+				transparent = false,
+				styles = {
+					comments = { italic = true, },
+					functions = { italic = true, },
+					variables = {},
+					numbers = {},
+					constants = {},
+					parameters = {},
+					keywords = {},
+					types = {},
+				},
+				overrides ={
+					['WinSeparator'] ={bg = '#262335' },
+					['FloatBorder'] = {bg = '#241b2f'}
+				}
+			})
+			vim.cmd.colorscheme 'fluoromachine'
 		end
-	}, {
-	'maxmx03/fluoromachine.nvim',
-	lazy = false,
-	priority = 1000,
-	config = function()
-		require('fluoromachine').setup({
-			glow = false,
-			theme = 'fluoromachine', --delta fluoromachine retrowave
-			transparent = false,
-			styles = {
-				comments = { italic = true, },
-				functions = { italic = true, },
-				variables = {},
-				numbers = {},
-				constants = {},
-				parameters = {},
-				keywords = {},
-				types = {},
-			},
-		})
-		vim.cmd.colorscheme 'fluoromachine'
-	end
-},
+	},
 	-- this theme needs transparent background
 	{
 		"scottmckendry/cyberdream.nvim",
@@ -78,7 +61,6 @@ return {
 	},
 	{
 		"nyoom-engineering/oxocarbon.nvim",
-		lazy = false,
 		priority = 1000,
 		config = function()
 			--vim.cmd("colorscheme oxocarbon")
@@ -94,7 +76,7 @@ return {
 				allow_italic = true,
 				toggle_style = { key = "" },
 			})
-			--	vim.cmd [[colorscheme kimbox]]
+			--vim.cmd [[colorscheme kimbox]]
 		end,
 	},
 	{
@@ -102,7 +84,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			--	vim.cmd [[colorscheme tokyonight-night]]
+			--vim.cmd [[colorscheme tokyonight-night]]
 		end,
 		opts = {
 		}
@@ -119,7 +101,7 @@ return {
 				---Default is "medium".
 				background = "soft", -- Your config here
 				italics = true,
-				--vim.cmd([[colorscheme everforest]])
+				--	vim.cmd([[colorscheme everforest]])
 			})
 		end,
 	},
