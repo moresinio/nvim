@@ -31,8 +31,8 @@ return {
 					},
 					layout_strategy = "vertical",
 					layout_config = {
-						height = 0.95,
-						width = 0.95,
+						height = 0.9,
+						width = 0.9,
 						horizontal = {
 							prompt_position = "bottom",
 							preview_cutoff = 120,
@@ -89,6 +89,10 @@ return {
 					}
 				},
 			}
+			require('telescope').load_extension('heading')
+			require("telescope").load_extension("fzf")
+			require('telescope').load_extension('media_files')
+			require("telescope").load_extension("scope")
 		end
 	},
 }

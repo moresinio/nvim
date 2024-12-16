@@ -36,9 +36,11 @@ return {
 					keywords = {},
 					types = {},
 				},
-				overrides ={
-					['WinSeparator'] ={bg = '#262335' },
-					['FloatBorder'] = {bg = '#241b2f'}
+				overrides = {
+					['WinSeparator'] = { bg = '#262335' },
+					['FloatBorder'] = { bg = '#241b2f' },
+					['TelescopeBorder'] = { bg = '#241b2f', fg = '#8c57c7' },
+					['YaziFloat'] = { bg = '#241b2f' },
 				}
 			})
 			vim.cmd.colorscheme 'fluoromachine'

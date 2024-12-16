@@ -45,7 +45,6 @@ lspconfig.marksman.setup {
 }
 
 -- Enable rounded borders in :LspInfo window.
-require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local signs = {
 	Error = '',

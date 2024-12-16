@@ -1,6 +1,6 @@
 return {
 	"folke/noice.nvim",
-	version = "4.4.7",
+--	version = "4.4.7",
 	enabled = true,
 	event = "VimEnter",
 	keys = {
@@ -65,7 +65,7 @@ return {
 
 				message = {
 					-- Messages shown by lsp servers
-					enabled = false,
+					enabled = true,
 					view = "notify",
 					opts = {},
 				},

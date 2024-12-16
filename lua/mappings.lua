@@ -35,7 +35,7 @@ wk.add({
 	{ "<leader>bb", "<cmd>Telescope buffers<cr>",       desc = "Buffers in current tab via Telescope" },
 	{ "<leader>ba", "<cmd>Telescope scope buffers<cr>", desc = "All buffers via Telescope" },
 	{ "<leader>bm", "<cmd>ScopeMoveBuf<cr>",            desc = "Move buffer to tab" },
-	{ "<leader>bC", "<cmd>BDelete other<cr>",           desc = "Delete all buffer except focused" },
+	--{ "<leader>bC", "<cmd>BDelete other<cr>",           desc = "Delete all buffer except focused" },
 	{
 		"<leader>bc",
 		"<cmd>lua require('cokeline.mappings').pick('close')<cr>",
@@ -63,13 +63,15 @@ wk.add({
 	{ "<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>",      desc = "Toggle Breakpoint" },
 	{ "<leader>du", "<cmd>lua require'dap'.step_out()<cr>",               desc = "Step Out" },
 
-	{ "<leader>;",  "<cmd>Alpha<CR>",                                     desc = "Dashboard" },
+	{ "<leader>;",  "<cmd>lua require'snacks'.dashboard.open()<CR>",                                     desc = "Dashboard" },
 	{ "<leader>L",  "<cmd>Lazy<CR>",                                      desc = "Lazy" },
 
 
 	{ "<leader>S",  group = "Session" },
 	{ "<leader>Sl", "<cmd>SessionLoad<cr>",                               desc = "Session load" },
 	{ "<leader>Ss", "<cmd>SessionSave<cr>",                               desc = "Session save" },
+
+	{ "<leader>T", "<cmd>ToggleTerm<CR>",                                desc = "Terminal" },
 
 	{ "<leader>t",  group = "Toggle/Off" },
 	{ "<leader>th", "<cmd>nohlsearch<CR>",                                desc = "Off search highlighting" },
@@ -95,23 +97,5 @@ wk.add({
 	},
 	{ "<leader>sr", "<cmd>Telescope oldfiles<cr>",  desc = "Open Recent File" },
 	{ "<leader>st", "<cmd>Telescope live_grep<cr>", desc = "Text" },
-
-	--mode = { "v" },
-	--{ "<leader>i",  group = "Screenshot" },
-	--{ "<leader>ii", function() require("nvim-silicon").shoot() end, desc = "Create code screenshot" },
+	{ "<leader>sT", "<cmd>Telescope heading<cr>", desc = "Heading" },
 })
-
-----{{ Flash and cinnamon integration:
-local flash = require("flash")
-local jump = require("flash.jump")
-local cinnamon = require("cinnamon")
-
-flash.setup({
-  action = function(match, state)
-    cinnamon.scroll(function()
-      jump.jump(match, state)
-      jump.on_jump(state)
-    end)
-  end,
-})
-----}}

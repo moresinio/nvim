@@ -1,4 +1,5 @@
 return {
+	enabled = false,
 	'stevearc/aerial.nvim',
 	config = function()
 		require("aerial").setup({

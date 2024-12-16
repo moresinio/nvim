@@ -1,6 +1,7 @@
 return {
 
 	'goolord/alpha-nvim',
+	enabled = false,
 	event = "VimEnter",
 	config = function()
 		---@diagnostic disable: trailing-space, undefined-global

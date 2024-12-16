@@ -4,9 +4,6 @@ return {
 	enabled = true,
 	event = "UIEnter",
 	config = function()
-		-- 	require("ibl").setup {
-		-- 		indent = { char = "▏" },
-		-- 	}
 		local highlight = {
 			"RainbowRed",
 			"RainbowYellow",

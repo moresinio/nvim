@@ -51,23 +51,23 @@ return {
 				component_separators = "󰨐", --'󰨐•', ◈ { left = '', right = '' }, --'•',
 				section_separators = { left = '', right = '' },
 				disabled_filetypes = {
-					statusline = { "dashboard", "lazy", "packer", "alpha" },
-					winbar = { "aerial", "lazy", "alpha", "nnn", "neo-tree", "dap-repl" } },
+					statusline = { "snacks_dashboard", "lazy", "packer", "alpha" },
+					winbar = { "snacks_dashboard", "toggleterm", "symbols.nvim", "lazy", "alpha", "nnn", "neo-tree", "dap-repl" } },
 				always_divide_middle = true,
 				globalstatus = true,
 			},
-			--extensions = { 'lazy', 'mason', "man", "neo-tree", "nvim-tree", "nvim-dap-ui" },
 			sections = {
 				lualine_a = {
 					{ function() return icons.emojis.a end, separator = { right = 'nil' } },
 					{
 						function() -- mode view
 							local mode_name_upper = require("lualine.utils.mode").get_mode()
-							--local mode_name_lower = mode_name_upper:lower()
+							local mode_name_lower = mode_name_upper:lower()
 							local mode_icon_raw = mode_icon_map[mode_name_upper]
 							local mode_icon_safety = mode_icon_raw == nil and "" or mode_icon_raw
 
-							return mode_icon_safety -- .. " " .. mode_name_lower
+							--return mode_icon_safety .. " " .. mode_name_lower
+							return mode_name_lower
 						end,
 					}
 				},
