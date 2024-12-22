@@ -3,6 +3,6 @@ return {
 	enabled = true,
 	event = { "InsertEnter", "CmdlineEnter" },
 	opts = {
-		legacy_computing_symbols_support = false,
+		legacy_computing_symbols_support = true,
 	},
 }

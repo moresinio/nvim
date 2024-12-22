@@ -25,6 +25,13 @@ map({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 map("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
 map("n", "<c-n>", "<Plug>(YankyNextEntry)")
 
+-- Duplicate a line and comment out the line
+map("n", 'yc', 'yygccp', { remap=true, desc = "Duplicate a line and comment out the first line"})
+map("n", "<CR>", "ciw", { desc = "Delete word and turn insert"})
+-- Move selected lines with shift+j or shift+k
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
+
 map("n", "<M-f>", function()
 	require('cokeline.mappings').pick("focus")
 end, { desc = "Pick a buffer to focus by letter" })
@@ -63,7 +70,7 @@ wk.add({
 	{ "<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>",      desc = "Toggle Breakpoint" },
 	{ "<leader>du", "<cmd>lua require'dap'.step_out()<cr>",               desc = "Step Out" },
 
-	{ "<leader>;",  "<cmd>lua require'snacks'.dashboard.open()<CR>",                                     desc = "Dashboard" },
+	{ "<leader>;",  "<cmd>lua require'snacks'.dashboard.open()<CR>",      desc = "Dashboard" },
 	{ "<leader>L",  "<cmd>Lazy<CR>",                                      desc = "Lazy" },
 
 

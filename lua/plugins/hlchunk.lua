@@ -30,7 +30,7 @@ return {
 			},
 
 			indent = {
-				enable = true,
+				enable = false,
 				use_treesitter = true,
 				chars = {
 					"▏", -- │
@@ -49,7 +49,7 @@ return {
 
 			blank = {
 				enable = true,
-				chars = { " ", "․", "⁚", "⁖", "⁘", "⁙" },
+				chars = {"․"}, --{ "𒐏", "․", "⁚", "⁖", "⁘", "⁙" },
 				style = {
 					vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
 				},

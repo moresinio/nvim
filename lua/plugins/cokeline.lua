@@ -1,6 +1,6 @@
 return {
 	'willothy/nvim-cokeline',
-	event = "VimEnter",
+	event = "InsertEnter",
 	dependencies = {
 		"nvim-lua/plenary.nvim",      -- Required for v0.4.0+
 		"kyazdani42/nvim-web-devicons", -- If you want devicons
@@ -55,7 +55,7 @@ return {
 			---@type table | false
 			sidebar = {
 				---@type string | string[]
-				filetype = { "symbols.nvim", "NvimTree", "nnn", "neo-tree", },
+				filetype = { "SymbolsSidebar", "NvimTree", "nnn", "neo-tree", },
 				---@type Component[]
 				components = {
 					{

@@ -11,7 +11,7 @@ return
 	},
 	config = function()
 		require("flash").setup({
-			labels = "asdfghjklqwertyuiopzxcvbnm",
+			labels = "asdfghjklqwertyuiopzxcvbnm67890",
 			search = {
 				-- search/jump in all windows
 				multi_window = true,
@@ -21,6 +21,12 @@ return
 				nohlsearch = true,
 				autojump = true,
 			},
+			modes = {
+				char = {
+					multi_line = false,
+					highlight = { backdrop = false },
+				}
+			}
 		})
 	end
 }

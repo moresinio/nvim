@@ -52,7 +52,7 @@ return {
 				section_separators = { left = '', right = '' },
 				disabled_filetypes = {
 					statusline = { "snacks_dashboard", "lazy", "packer", "alpha" },
-					winbar = { "snacks_dashboard", "toggleterm", "symbols.nvim", "lazy", "alpha", "nnn", "neo-tree", "dap-repl" } },
+					winbar = { "snacks_dashboard", "toggleterm", "SymbolsSidebar", "lazy", "alpha", "nnn", "neo-tree", "dap-repl" } },
 				always_divide_middle = true,
 				globalstatus = true,
 			},
@@ -87,11 +87,9 @@ return {
 				lualine_c = {
 				},
 				lualine_x = {
-					--{
-					--	"%b"
-					--},
 					{
 						'searchcount',
+						color = { gui = "italic" },
 					},
 					{
 						function()
@@ -121,6 +119,11 @@ return {
 						'encoding',
 						color = { gui = "italic" },
 					},
+					{
+						"filetype",
+						colored = false,
+						color = { gui = "italic" },
+					}
 				},
 				lualine_y = {
 					{
@@ -138,7 +141,7 @@ return {
 
 			winbar = {
 				lualine_c = {
-					{ function() return icons.ui.CircleSmall end,
+					{ function() return "🛆" end, -- icons.ui.CircleSmall end,
 						--separator = { right = ' ' },
 						color = "Question",
 					},
@@ -154,7 +157,7 @@ return {
 			},
 			inactive_winbar = {
 				lualine_c = {
-					{ function() return icons.ui.CircleSmall end,
+					{ function() return "🛆" end, --icons.ui.CircleSmall end,
 						--separator = { right = ' ' },
 						color = { bg = "Comment", }
 					},

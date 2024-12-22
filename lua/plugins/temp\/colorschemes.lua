@@ -7,15 +7,8 @@ return {
 			require('dracula').setup({
 				italic_comment = true, -- default false
 			})
-			--	vim.cmd([[colorscheme dracula]])
+			--vim.cmd([[colorscheme dracula]])
 		end,
-	},
-	{
-		'kdheepak/monochrome.nvim',
-		priority = 1000,
-		config = function()
-			--	vim.cmd 'colorscheme monochrome'
-		end
 	},
 	{
 		'maxmx03/fluoromachine.nvim',
@@ -29,36 +22,17 @@ return {
 				styles = {
 					comments = { italic = true, },
 					functions = { italic = true, },
-					variables = {},
-					numbers = {},
-					constants = {},
-					parameters = {},
-					keywords = {},
-					types = {},
 				},
 				overrides = {
 					['WinSeparator'] = { bg = '#262335' },
 					['FloatBorder'] = { bg = '#241b2f' },
 					['TelescopeBorder'] = { bg = '#241b2f', fg = '#8c57c7' },
 					['YaziFloat'] = { bg = '#241b2f' },
+					['IncSearch'] = { fg = '#ffcc00' },
+					['YankyYanked'] = { fg = '#ffcc00' },
 				}
 			})
 			vim.cmd.colorscheme 'fluoromachine'
-		end
-	},
-	-- this theme needs transparent background
-	{
-		"scottmckendry/cyberdream.nvim",
-		enabled = false,
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("cyberdream").setup({
-				-- Enable transparent background
-				transparent = false,
-				borderless_telescope = true,
-			})
-			--vim.cmd("colorscheme cyberdream")
 		end
 	},
 	{
@@ -91,20 +65,20 @@ return {
 		opts = {
 		}
 	},
-	{
-		"neanias/everforest-nvim",
-		version = false,
-		lazy = false,
-		priority = 1000, -- make sure to load this before all the other start plugins
-		-- Optional; default configuration will be used if setup isn't called.
-		config = function()
-			require("everforest").setup({
-				---Controls the "hardness" of the background. Options are "soft", "medium" or "hard".
-				---Default is "medium".
-				background = "soft", -- Your config here
-				italics = true,
-				--	vim.cmd([[colorscheme everforest]])
-			})
-		end,
-	},
+ -- {
+ -- 	"neanias/everforest-nvim",
+ -- 	version = false,
+ -- 	lazy = false,
+ -- 	priority = 1000, -- make sure to load this before all the other start plugins
+ -- 	-- Optional; default configuration will be used if setup isn't called.
+ -- 	config = function()
+ -- 		require("everforest").setup({
+ -- 			---Controls the "hardness" of the background. Options are "soft", "medium" or "hard".
+ -- 			---Default is "medium".
+ -- 			background = "soft", -- Your config here
+ -- 			italics = true,
+ -- 			--	vim.cmd([[colorscheme everforest]])
+ -- 		})
+ -- 	end,
+ -- },
 }
