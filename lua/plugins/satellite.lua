@@ -1,6 +1,6 @@
 return {
 	"lewis6991/satellite.nvim",
-	event = "VeryLazy",
+	event = "BufAdd",
 	opts = {
 		current_only = true,
 		zindex = 30,

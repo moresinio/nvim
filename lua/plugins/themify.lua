@@ -2,7 +2,7 @@ return {
 	'lmantw/themify.nvim',
 	enabled = true,
 	lazy = false,
-	priority = 999,
+	priority = 1000,
 	config = {
 		activity = false,
 		async = true,
@@ -25,6 +25,7 @@ return {
 						['YaziFloat'] = { bg = '#241b2f' },
 						['IncSearch'] = { fg = '#ffcc00' },
 						['YankyYanked'] = { fg = '#ffcc00' },
+						['WhichKeyTitle'] = { fg = '#ffcc00', bg = '#503e26' }
 					}
 				})
 			end

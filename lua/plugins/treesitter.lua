@@ -1,6 +1,6 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
-	event = "User FileOpened",
+	event = "BufAdd",
 	config = function()
 		require 'nvim-treesitter.configs'.setup {
 
@@ -20,7 +20,7 @@ return {
 
 			indent = {
 				-- Включить indent
-				enable = true,
+				enable = false,
 				disable = {},
 			}
 		}

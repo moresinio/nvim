@@ -42,7 +42,7 @@ end
 
 return {
 	'nvim-lualine/lualine.nvim',
-	event = "VimEnter",
+	event = "BufAdd",
 	config = function()
 		require('lualine').setup {
 			options = {
@@ -141,7 +141,7 @@ return {
 
 			winbar = {
 				lualine_c = {
-					{ function() return "🛆" end, -- icons.ui.CircleSmall end,
+					{ function() return "󱨊" end, -- icons.ui.CircleSmall end,
 						--separator = { right = ' ' },
 						color = "Question",
 					},
@@ -157,7 +157,7 @@ return {
 			},
 			inactive_winbar = {
 				lualine_c = {
-					{ function() return "🛆" end, --icons.ui.CircleSmall end,
+					{ function() return "󱨊" end, --icons.ui.CircleSmall end,
 						--separator = { right = ' ' },
 						color = { bg = "Comment", }
 					},

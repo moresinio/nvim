@@ -12,7 +12,7 @@ return {
 
 	{
 		'nvim-telescope/telescope.nvim',
-		event = "VeryLazy",
+		--event = "VeryLazy",
 		dependencies = { { 'nvim-lua/plenary.nvim' }, "telescope-fzf-native.nvim" },
 		cmd = "Telescope oldfiles",
 		keys = {
@@ -23,7 +23,7 @@ return {
 			require("telescope").setup {
 				defaults = {
 					prompt_prefix = " ",
-					selection_caret = " ",
+					selection_caret = "󰨐 ",
 					mappings = {
 						i = {
 							["`"] = actions.close

@@ -1,5 +1,5 @@
 return
 {
 	"chaoren/vim-wordmotion",
-		event = "VeryLazy",
+		event = "InsertEnter",
 }

@@ -2,7 +2,7 @@ return {
 	"folke/noice.nvim",
 --	version = "4.4.7",
 	enabled = true,
-	event = "VimEnter",
+	event = { "InsertEnter", "CmdlineEnter" },
 	keys = {
 		{ "<leader>n", "<cmd>NoiceHistory<cr>", desc = "Notification" },
 	},

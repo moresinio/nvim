@@ -2,7 +2,7 @@ return {
 	"lukas-reineke/indent-blankline.nvim",
 	main = "ibl",
 	enabled = true,
-	event = "UIEnter",
+	event = "BufAdd",
 	config = function()
 		require("ibl").setup({
 			scope = {
