@@ -51,6 +51,9 @@ return {
 				map('n', '<F1>', '<Plug>(cokeline-switch-prev)', { silent = true }),
 				map('n', '<F2>', '<Plug>(cokeline-switch-next)', { silent = true }),
 			},
+      rendering = {
+        max_buffer_width = 25,
+      },
 
 			---@type table | false
 			sidebar = {

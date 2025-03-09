@@ -1,5 +1,6 @@
 return {
 	'b0o/incline.nvim',
+	ft = "arduino",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 		"SmiteshP/nvim-navic",
@@ -18,13 +19,27 @@ return {
 				if filename == '' then
 					filename = '[No Name]'
 				end
+
+				local function arduino_status()
+					if vim.bo.filetype ~= "arduino" then
+						return ""
+					end
+					local port = vim.fn["arduino#GetPort"]()
+					local line = string.format("%s", vim.g.arduino_board)
+					if vim.g.arduino_programmer ~= "" then
+						line = line .. string.format(" [%s]", vim.g.arduino_programmer)
+					end
+					if port ~= 0 then
+						line = line .. string.format(" (%s:%s)", port, vim.g.arduino_serial_baud)
+					end
+					return line
+				end
+
 				local ft_icon, ft_color = devicons.get_icon_color(filename)
 				local modified = vim.bo[props.buf].modified
 				local res = {
-					ft_icon and { ' ', ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or '',
-					' ',
-					{ filename, gui = modified and 'bold,italic' or 'bold' },
-					guibg = '#44406e',
+					--guibg = '#44406e',
+					{ arduino_status(), gui = 'italic', guifg = ft_color, },
 				}
 				if props.focused then
 					for _, item in ipairs(navic.get_data(props.buf) or {}) do

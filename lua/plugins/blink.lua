@@ -18,43 +18,43 @@ return {
 				},
 			},
 
-			sources = {
-				default = { 'lsp', 'path', 'snippets', 'buffer' },
-				cmdline = {},
-			},
+		 -- sources = {
+		 -- 	default = { 'lsp', 'path', 'snippets', 'buffer' },
+		 -- 	cmdline = {},
+		 -- },
 
-			completion = {
-				list = {
-					selection = {
-						auto_insert = true,
-						preselect = true,
-					},
-				},
-				documentation = {
-					auto_show = false,
-					auto_show_delay_ms = 666,
-				},
-				ghost_text = {
-					enabled = true,
-				},
-				menu = {
-					border = 'rounded',
-					scrollbar = false,
-					draw = {
-						treesitter = { 'lsp' },
+		  completion = {
+		  	list = {
+		  		selection = {
+		  			auto_insert = true,
+		  			preselect = true,
+		  		},
+		  	},
+		  	documentation = {
+		  		auto_show = false,
+		  		auto_show_delay_ms = 666,
+		  	},
+		  	ghost_text = {
+		  		enabled = true,
+		  	},
+		  	menu = {
+		  		border = 'rounded',
+		  		scrollbar = false,
+		  		draw = {
+		  			treesitter = { 'lsp' },
 
-						-- We don't need label_description now because label and label_description are already
-						-- conbined together in label by colorful-menu.nvim.
-						columns = { { "kind_icon" }, { "label", gap = 1 } },
-						components = {
-							label = {
-								text = require("colorful-menu").blink_components_text,
-								highlight = require("colorful-menu").blink_components_highlight,
-							},
-						},
-					},
-				},
-			}
+		  			-- We don't need label_description now because label and label_description are already
+		  			-- conbined together in label by colorful-menu.nvim.
+		  			columns = { { "kind_icon" }, { "label", gap = 1 } },
+		  			components = {
+		  				label = {
+		  					text = require("colorful-menu").blink_components_text,
+		  					highlight = require("colorful-menu").blink_components_highlight,
+		  				},
+		  			},
+		  		},
+		  	},
+		  }
 		})
 	end
 }

@@ -10,8 +10,8 @@ lspconfig.clangd.setup {
 	},
 }
 
-require("clangd_extensions.inlay_hints").setup_autocmd()
-require("clangd_extensions.inlay_hints").set_inlay_hints()
+--require("clangd_extensions.inlay_hints").setup_autocmd()
+--require("clangd_extensions.inlay_hints").set_inlay_hints()
 
 lspconfig.bashls.setup {
 	settings = {
@@ -37,14 +37,38 @@ lspconfig.lua_ls.setup {
 		},
 	},
 }
-lspconfig.marksman.setup {
+--lspconfig.marksman.setup {
+--	settings = {
+--		['marksman'] = {
+--		},
+--	},
+--}
+
+local util = require 'lspconfig.util'
+lspconfig.arduino_language_server.setup {
 	settings = {
-		['marksman'] = {
+		['arduino_language_server'] = {
 		},
 	},
+	filetypes = { "arduino", },
+--	root_dir = util.root_pattern '*.ino',
+ -- capabilities = {
+ -- 	textDocument = {
+ -- 		semanticTokens = vim.NIL
+ -- 	},
+ -- 	workspace = {
+ -- 		semanticTokens = vim.NIL
+ -- 	}
+ -- },
+	--cmd = {
+	--	"arduino-language-server",
+--		"-cli-config", "/home/rengoku/.arduino15/arduino-cli.yaml",
+--		"-fqbn", "arduino:avr:nano",
+--		"-cli", "/usr/bin/arduino-cli",
+	--	"-clangd", "/home/rengoku/.local/share/nvim/mason/packages/clangd/clangd_19.1.2/bin/clangd",
+	--}
 }
 
--- Enable rounded borders in :LspInfo window.
 
 local signs = {
 	Error = '',

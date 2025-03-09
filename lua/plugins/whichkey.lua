@@ -6,7 +6,7 @@ return {
 			{ "<leader>d", group = "DAP" },
 		},
 		opts = {
-			preset = "classic",
+			preset = "helix",
 			win = {
 				border = "rounded",
 			},

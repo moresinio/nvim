@@ -19,13 +19,18 @@ return {
 						functions = { italic = true, },
 					},
 					overrides = {
-						['WinSeparator'] = { bg = '#262335' },
+						['WinSeparator'] = { bg = '#1b172b' },
 						['FloatBorder'] = { bg = '#241b2f' },
 						['TelescopeBorder'] = { bg = '#241b2f', fg = '#8c57c7' },
 						['YaziFloat'] = { bg = '#241b2f' },
 						['IncSearch'] = { fg = '#ffcc00' },
 						['YankyYanked'] = { fg = '#ffcc00' },
-						['WhichKeyTitle'] = { fg = '#ffcc00', bg = '#503e26' }
+						['WhichKeyTitle'] = { fg = '#ffcc00', bg = '#503e26' },
+						['Normal'] = { fg = '#8ba7a7', bg = '#1b172b' },
+						['SignColumn'] = { bg = '#1b172b' },
+						['FoldColumn'] = { fg = '#8ba7a7', bg = '#1b172b' },
+						['LineNr'] = { fg = '#495495', bg = '#1b172b' },
+						['CursorLineNr'] = { fg = '#fc199a', bg = '#1b172b' },
 					}
 				})
 			end
@@ -34,5 +39,6 @@ return {
 		"Mofiqul/dracula.nvim",
 		"lmburns/kimbox",
 		"folke/tokyonight.nvim",
+		"eldritch-theme/eldritch.nvim"
 	}
 }

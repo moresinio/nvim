@@ -36,15 +36,15 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	desc = "Open :help with vertical split",
-	pattern = { "*.txt" },
-	callback = function()
-		if vim.bo.filetype == "help" then
-			vim.cmd.wincmd("L")
-		end
-	end,
-})
+--vim.api.nvim_create_autocmd("BufWinEnter", {
+--	desc = "Open :help with vertical split",
+--	pattern = { "*.txt" },
+--	callback = function()
+--		if vim.bo.filetype == "help" then
+--			vim.cmd.wincmd("L")
+--		end
+--	end,
+--})
 
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 	desc = "Redraw buffer when associated file is changed",
@@ -78,16 +78,34 @@ if vim.opt.relativenumber:get() then
 	})
 end
 
-vim.api.nvim_create_autocmd("BufHidden", {
-	desc = "Delete [No Name] buffers",
-	callback = function(data)
-		if data.file == "" and vim.bo[data.buf].buftype == "" and not vim.bo[data.buf].modified then
-			vim.schedule(function()
-				pcall(vim.api.nvim_buf_delete, data.buf, {})
-			end)
+vim.api.nvim_create_augroup("AutoDeleteNoNameBuffer", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+	group = "AutoDeleteNoNameBuffer",
+	pattern = "*",
+	callback = function()
+		local bufsize = #vim.fn.getbufinfo({ buflisted = 1 })
+		if bufsize == 2 then
+			for _, buf in pairs(vim.fn.getbufinfo({ buflisted = 1 })) do
+				if buf.name == "" then
+					vim.api.nvim_buf_delete(buf.bufnr, { force = true })
+				end
+			end
 		end
 	end,
 })
+
+-- vim.api.nvim_create_autocmd("User", {
+-- 	pattern = '?????',
+-- 	callback = function(event)
+-- 		local fallback_name = vim.api.nvim_buf_get_name(event.buf)
+-- 		local fallback_ft = vim.api.nvim_buf_get_option(event.buf, "filetype")
+-- 		local fallback_on_empty = fallback_name == "" and fallback_ft == ""
+-- 
+-- 		if fallback_on_empty then
+-- 			require('snacks').dashboard.open()
+-- 		end
+-- 	end,
+-- })
 
 -- From LunarVim
 vim.api.nvim_create_autocmd("FileType",
@@ -130,17 +148,31 @@ vim.api.nvim_create_autocmd("FileType",
 )
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    local bufnr = args.buf ---@type number
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client.supports_method('textDocument/inlayHint') then
-      vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
-      vim.keymap.set('n', '<leader>ti', function()
-        vim.lsp.inlay_hint.enable(
-          not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
-          { bufnr = bufnr }
-        )
-      end, { buffer = bufnr, desc = "InlayHint Toggle"})
-    end
-  end,
+	callback = function(args)
+		local bufnr = args.buf ---@type number
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client.supports_method('textDocument/inlayHint') then
+			vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
+			vim.keymap.set('n', '<leader>ti', function()
+				vim.lsp.inlay_hint.enable(
+					not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
+					{ bufnr = bufnr }
+				)
+			end, { buffer = bufnr, desc = "InlayHint Toggle" })
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'markdown',
+	callback = function(args)
+		vim.lsp.start({
+			name = 'iwes',
+			cmd = { '/home/rengoku/.cargo/bin/iwes' },
+			root_dir = vim.fs.root(args.buf, { '.iwe' }),
+			flags = {
+				debounce_text_changes = 500
+			}
+		})
+	end,
 })

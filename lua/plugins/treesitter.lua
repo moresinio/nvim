@@ -5,7 +5,7 @@ return {
 		require 'nvim-treesitter.configs'.setup {
 
 			-- Нужные парсеры
-			ensure_installed = { "bash", "lua", "cmake", "vim", "css", "json", "regex", "sql", "c", "cpp", "python", "markdown",
+			ensure_installed = { "bash", "lua", "cmake", "vim", "css", "scss", "arduino", "json", "regex", "sql", "c", "cpp", "python", "markdown",
 				"markdown_inline" },
 
 			-- Устанавливать парсеры синхронно

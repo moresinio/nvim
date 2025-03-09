@@ -4,7 +4,7 @@ return {
 	enabled = true,
 	event = { "InsertEnter", "CmdlineEnter" },
 	keys = {
-		{ "<leader>n", "<cmd>NoiceHistory<cr>", desc = "Notification" },
+	--	{ "<leader>n", "<cmd>NoiceHistory<cr>", desc = "Notification" },
 	},
 	dependencies = {
 		{
@@ -13,7 +13,7 @@ return {
 				require("plugins.Ui.nui")
 			end
 		},
-		{ "rcarriga/nvim-notify" },
+	--	{ "rcarriga/nvim-notify" },
 	},
 	config = function()
 		require('noice').setup({

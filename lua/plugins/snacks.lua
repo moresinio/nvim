@@ -31,7 +31,7 @@ return {
 					{ icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
 					{ icon = " ", key = "r", desc = "Restore Session", section = "session" },
 					{ icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+					{ icon = "󰩈 ", key = "q", desc = "Quit", action = ":qa" },
 				},
 				-- Used by the `header` section
 				header = [[
@@ -65,8 +65,8 @@ return {
 			},
 			sections = {
 				{ section = "header" },
-				{ section = "keys",  gap = 0, padding = 1 },
-        { section = "startup" },
+				{ section = "keys",   gap = 0, padding = 1 },
+				{ section = "startup" },
 			},
 		},
 
@@ -85,6 +85,7 @@ return {
 			enabled = false,
 			jumplist = false,
 		},
+
 		dim = {
 			enabled = true,
 			scope = {

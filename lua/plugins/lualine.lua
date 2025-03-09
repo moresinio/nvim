@@ -1,4 +1,5 @@
 local icons = require('plugins.Ui.icons')
+
 local mode_icon_map = {
 	["NORMAL"] = "󰰓",
 	["O-PENDING"] = "",
@@ -18,6 +19,7 @@ local mode_icon_map = {
 	["SHELL"] = "󰰡",
 	["TERMINAL"] = "󰰤",
 }
+
 local progress_cyrcle = function()
 	local current_line = vim.fn.line(".")
 	local total_lines = vim.fn.line("$")
@@ -42,7 +44,7 @@ end
 
 return {
 	'nvim-lualine/lualine.nvim',
-	event = "BufAdd",
+	event = "VeryLazy",
 	config = function()
 		require('lualine').setup {
 			options = {
@@ -51,7 +53,7 @@ return {
 				component_separators = "󰨐", --'󰨐•', ◈ { left = '', right = '' }, --'•',
 				section_separators = { left = '', right = '' },
 				disabled_filetypes = {
-					statusline = { "snacks_dashboard", "lazy", "packer", "alpha" },
+					statusline = { "snacks_dashboard", "packer", "alpha" },
 					winbar = { "snacks_dashboard", "toggleterm", "SymbolsSidebar", "lazy", "alpha", "nnn", "neo-tree", "dap-repl" } },
 				always_divide_middle = true,
 				globalstatus = true,
@@ -63,16 +65,20 @@ return {
 						function() -- mode view
 							local mode_name_upper = require("lualine.utils.mode").get_mode()
 							local mode_name_lower = mode_name_upper:lower()
-							local mode_icon_raw = mode_icon_map[mode_name_upper]
-							local mode_icon_safety = mode_icon_raw == nil and "" or mode_icon_raw
-
+							--local mode_icon_raw = mode_icon_map[mode_name_upper]
+							--local mode_icon_safety = mode_icon_raw == nil and "" or mode_icon_raw
 							--return mode_icon_safety .. " " .. mode_name_lower
 							return mode_name_lower
 						end,
+						separator = { right = '' },
+						color = { gui = "italic" },
 					}
 				},
 				lualine_b = {
-					{ 'branch' },
+					{
+						'branch',
+						color = { gui = "italic" },
+					},
 					{
 						'diagnostics',
 						symbols = {
@@ -82,6 +88,7 @@ return {
 							info = icons.diagnostics.Info,
 						},
 						sections = { 'error', 'warn', 'info', 'hint' },
+						color = { gui = "italic" },
 					},
 				},
 				lualine_c = {
@@ -110,7 +117,7 @@ return {
 							local unique_client_names = table.concat(buf_client_names, ", ")
 							--local language_servers = string.format("[%s]", unique_client_names)
 
-							return unique_client_names
+							return unique_client_names ~= '' and "LSP  "
 						end,
 						--color = { guifg = "WinSeparator", gui = "italic" },
 						color = { gui = "italic" },
@@ -133,7 +140,7 @@ return {
 				lualine_z = {
 					{
 						progress_cyrcle,
-						separator = "",
+						separator = { left = '' }
 						--padding = { left = 1, right = 1 },
 					},
 				},
