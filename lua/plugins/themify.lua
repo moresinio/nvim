@@ -2,7 +2,7 @@ return {
 	'lmantw/themify.nvim',
 	enabled = true,
 	lazy = false,
-	priority = 1000,
+	priority = 900,
 	config = {
 		activity = false,
 		async = true,
@@ -36,6 +36,13 @@ return {
 			end
 		},
 
+  "sponkurtus2/angelic.nvim",
+ --  lazy = false,
+ --  priority = 1000,
+ --  config = function()
+ --    require("angelic").setup({})
+ --    vim.cmd.colorscheme("angelic")
+ --  end,
 		"Mofiqul/dracula.nvim",
 		"lmburns/kimbox",
 		"folke/tokyonight.nvim",

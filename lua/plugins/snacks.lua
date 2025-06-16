@@ -1,6 +1,7 @@
 return {
 	"folke/snacks.nvim",
 	enent = "UiEnter",
+	priority = 1000,
 	lazy = false,
 	keys = {
 		{ "<F4>",       function() require("snacks").bufdelete() end,       desc = "Delete Buffer" },
