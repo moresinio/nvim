@@ -1,5 +1,6 @@
 return {
 	'b0o/incline.nvim',
+	enabled = false,
 	ft = "arduino",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
@@ -13,6 +14,10 @@ return {
 			window = {
 				padding = 0,
 				margin = { horizontal = 0, vertical = 0 },
+				width = "fit",
+				options = {
+					wrap = true,
+				},
 			},
 			render = function(props)
 				local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
@@ -41,15 +46,6 @@ return {
 					--guibg = '#44406e',
 					{ arduino_status(), gui = 'italic', guifg = ft_color, },
 				}
-				if props.focused then
-					for _, item in ipairs(navic.get_data(props.buf) or {}) do
-						table.insert(res, {
-							{ ' > ',     group = 'NavicSeparator' },
-							{ item.icon, group = 'NavicIcons' .. item.type },
-							{ item.name, group = 'NavicText' },
-						})
-					end
-				end
 				table.insert(res, ' ')
 				return res
 			end,

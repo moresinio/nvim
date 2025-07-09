@@ -36,16 +36,20 @@ return {
 			end
 		},
 
-  "sponkurtus2/angelic.nvim",
- --  lazy = false,
- --  priority = 1000,
- --  config = function()
- --    require("angelic").setup({})
- --    vim.cmd.colorscheme("angelic")
- --  end,
+		"lunarvim/synthwave84.nvim",
+    "samharju/synthweave.nvim",
 		"Mofiqul/dracula.nvim",
 		"lmburns/kimbox",
 		"folke/tokyonight.nvim",
-		"eldritch-theme/eldritch.nvim"
+		"eldritch-theme/eldritch.nvim",
+		{
+			"ellisonleao/gruvbox.nvim",
+			before = function()
+				require("gruvbox").setup({
+					contrast = "soft", -- can be "hard", "soft" or empty string
+					inverse = false, -- invert background for search, diffs, statuslines and errors
+				})
+			end
+		}
 	}
 }

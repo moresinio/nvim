@@ -1,5 +1,6 @@
 return {
     'nullromo/go-up.nvim',
+		enabled = true;
 		event = "BufAdd",
     opts = {
     goUpLimit = 13,

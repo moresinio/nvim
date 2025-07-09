@@ -107,6 +107,5 @@ opt.foldlevelstart = 99
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldtext = require("modules.foldtext")
 
-
 --opt.winbar = " "
 cmd("autocmd BufEnter * set fo-=c fo-=r fo-=o") -- Отключить автоматическое комментирование при переходе на следующую строку
