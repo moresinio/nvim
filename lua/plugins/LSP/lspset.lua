@@ -69,7 +69,6 @@ lspconfig.arduino_language_server.setup {
 	--}
 }
 
-
 local signs = {
 	Error = '',
 	Warn = '',

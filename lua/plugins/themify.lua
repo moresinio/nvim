@@ -3,7 +3,7 @@ return {
 	enabled = true,
 	lazy = false,
 	priority = 900,
-	config = {
+	opts = {
 		activity = false,
 		async = true,
 
