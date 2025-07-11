@@ -1,5 +1,5 @@
 return {
   "chentoast/marks.nvim",
-  event = "VeryLazy",
+  event = "BufAdd",
   opts = {},
 }

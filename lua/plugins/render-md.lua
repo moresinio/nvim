@@ -1,7 +1,7 @@
 return {
-	enabled = true,
+	enabled = false,
 	'MeanderingProgrammer/render-markdown.nvim',
-	event = "UIEnter",
+	ft = "markdown",
 	opts = {},
 	dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },   -- if you prefer nvim-web-devicons
 }

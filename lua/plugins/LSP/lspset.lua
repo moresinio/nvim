@@ -25,12 +25,12 @@ lspconfig.pyright.setup {
 		},
 	},
 }
-lspconfig.cssls.setup {
-	settings = {
-		['cssls'] = {
-		},
-	},
-}
+--lspconfig.cssls.setup {
+--	settings = {
+--		['cssls'] = {
+--		},
+--	},
+--}
 lspconfig.lua_ls.setup {
 	settings = {
 		['lua_ls'] = {
