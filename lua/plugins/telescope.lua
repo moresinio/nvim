@@ -14,10 +14,10 @@ return {
 		'nvim-telescope/telescope.nvim',
 		--event = "VeryLazy",
 		dependencies = { { 'nvim-lua/plenary.nvim' }, "telescope-fzf-native.nvim" },
-		cmd = "Telescope oldfiles",
-		keys = {
-			{ "<leader>o", "<cmd>Telescope oldfiles<cr>", desc = "OldFiles" },
-		},
+		--		cmd = "Telescope oldfiles",
+		-- 	keys = {
+		-- 		{ "<leader>o", "<cmd>Telescope oldfiles<cr>", desc = "OldFiles" },
+		-- 	},
 		config = function()
 			local actions = require("telescope.actions")
 			require("telescope").setup {

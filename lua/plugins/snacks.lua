@@ -28,7 +28,7 @@ return {
 			-- These settings are used by some built-in sections
 			preset = {
 				keys = {
-					{ icon = " ", key = "o", desc = "Old Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+					{ icon = " ", key = "o", desc = "Old Files", action = ":lua Snacks.picker.recent()" },
 					{ icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
 					{ icon = " ", key = "r", desc = "Restore Session", section = "session" },
 					{ icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },

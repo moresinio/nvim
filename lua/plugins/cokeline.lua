@@ -51,9 +51,9 @@ return {
 				map('n', '<F1>', '<Plug>(cokeline-switch-prev)', { silent = true }),
 				map('n', '<F2>', '<Plug>(cokeline-switch-next)', { silent = true }),
 			},
-      rendering = {
-        max_buffer_width = 25,
-      },
+			rendering = {
+				max_buffer_width = 25,
+			},
 
 			---@type table | false
 			sidebar = {
@@ -245,6 +245,9 @@ return {
 					on_click = function(_, _, _, _, buffer)
 						buffer:delete()
 					end,
+					truncation = {
+						priority = 2,
+					},
 				},
 
 				{
@@ -274,7 +277,10 @@ return {
 						elseif buffer.is_last then
 							return bg_color_inactive
 						end
-					end
+					end,
+					truncation = {
+						priority = 1,
+					},
 				}
 			},
 		})

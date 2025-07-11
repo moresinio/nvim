@@ -9,7 +9,6 @@ return {
 			"williamboman/mason.nvim",
 		},
 		keys = {
-			{ '<leader>D', '<cmd>lua vim.diagnostic.open_float()<cr>',  desc = "Diagnostic" },
 			{ '[d',        '<cmd>lua vim.diagnostic.goto_prev()<cr>',   desc = "Prev diagnostic" },
 			{ ']d',        '<cmd>lua vim.diagnostic.goto_next()<cr>',   desc = "Next diagnostic" },
 			{ 'ga',        '<cmd>lua vim.lsp.buf.code_action()<cr>',    desc = "Code action" },

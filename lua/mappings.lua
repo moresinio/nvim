@@ -8,9 +8,9 @@ map("n", "<M-j>", "<C-w>j", { desc = "Focus to right-side window" })
 map("n", "<M-k>", "<C-w>k", { desc = "Focus to top-side window" })
 map("n", "<M-l>", "<C-w>l", { desc = "Focus to bottom-side window" })
 
-map("n", "<M-c>", "<C-w>c", { desc = "Close window" })
+map("n", "<F5>", "<C-w>c", { desc = "Close window" })
 
-map("n", "<leader>||", "<c-w>v", { desc = "Split window vertically" })
+map("n", "<leader>|", "<c-w>v", { desc = "Split window vertically" })
 map("n", "<leader>\\", "<c-w>s", { desc = "Split window" })
 
 map("n", "S", '"_S', { desc = "'S' without copying to clipboard" })
@@ -72,7 +72,7 @@ wk.add({
 	{ "<leader>;",  "<cmd>lua require'snacks'.dashboard.open()<CR>",      desc = "Dashboard" },
 	{ "<leader>n",  "<cmd>lua Snacks.picker.notifications()<CR>",      desc = "Notifications" },
 	{ "<leader>p",  "<cmd>lua Snacks.picker.pickers()<CR>",      desc = "Pickers" },
-	{ "<leader>O",  "<cmd>lua Snacks.picker.recent()<CR>",      desc = "Recent" },
+	{ "<leader>o",  "<cmd>lua Snacks.picker.recent()<CR>",      desc = "Recent" },
 	{ "<leader>L",  "<cmd>Lazy<CR>",                                      desc = "Lazy" },
 
 	{ "<leader>a",  group = "Arduino" },

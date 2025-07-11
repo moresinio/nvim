@@ -24,7 +24,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = { "lua_ls", "clangd", "bashls", "marksman", }, -- "clangd",  "pyre", "lemminx",
-				automatic_installation = true,
+				automatic_installation = false,
 			})
 		end,
 	},
