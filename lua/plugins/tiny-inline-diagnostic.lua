@@ -4,7 +4,6 @@ return {
 	event = "InsertEnter",
 	dependencies = {
 		"neovim/nvim-lspconfig",
-		opts = { diagnostics = { virtual_text = false } },
 	},
 
 	opts = {

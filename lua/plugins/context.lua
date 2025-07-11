@@ -1,5 +1,6 @@
 return {
 	"andersevenrud/nvim_context_vt",
+	enabled = true,
 	keys = {
 		{ "<leader>tl", "<cmd>NvimContextVtToggle<cr>",      desc = "Lsp context" },
 	},

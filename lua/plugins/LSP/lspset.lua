@@ -51,34 +51,34 @@ lspconfig.arduino_language_server.setup {
 		},
 	},
 	filetypes = { "arduino", },
---	root_dir = util.root_pattern '*.ino',
- -- capabilities = {
- -- 	textDocument = {
- -- 		semanticTokens = vim.NIL
- -- 	},
- -- 	workspace = {
- -- 		semanticTokens = vim.NIL
- -- 	}
- -- },
+	--	root_dir = util.root_pattern '*.ino',
+	-- capabilities = {
+	-- 	textDocument = {
+	-- 		semanticTokens = vim.NIL
+	-- 	},
+	-- 	workspace = {
+	-- 		semanticTokens = vim.NIL
+	-- 	}
+	-- },
 	--cmd = {
 	--	"arduino-language-server",
---		"-cli-config", "/home/rengoku/.arduino15/arduino-cli.yaml",
---		"-fqbn", "arduino:avr:nano",
---		"-cli", "/usr/bin/arduino-cli",
+	--		"-cli-config", "/home/rengoku/.arduino15/arduino-cli.yaml",
+	--		"-fqbn", "arduino:avr:nano",
+	--		"-cli", "/usr/bin/arduino-cli",
 	--	"-clangd", "/home/rengoku/.local/share/nvim/mason/packages/clangd/clangd_19.1.2/bin/clangd",
 	--}
 }
 
-local signs = {
-	Error = '',
-	Warn = '',
-	Hint = '',
-	Info = '',
-}
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+--local signs = {
+--	Error = '',
+--	Warn = '',
+--	Hint = '',
+--	Info = '',
+--}
+--for type, icon in pairs(signs) do
+--	local hl = "DiagnosticSign" .. type
+--	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+--end
 
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
@@ -90,35 +90,26 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
 	{ border = 'rounded' }
 )
 
-vim.diagnostic.config({
+vim.diagnostic.config {
 	virtual_text = false,
-	--  	{
-	--  	prefix = '󰀨 '
-	--  },
-	signs = true,
-	underline = true,
-	update_in_insert = false,
-	severity_sort = false,
+	virtual_line = false,
 	float = {
+		focusable = false,
+		style = 'minimal',
 		border = 'rounded',
-		source = 'always',
 		header = '',
 		prefix = '',
 	},
-})
-
--- vim.o.updatetime = 700
--- vim.api.nvim_create_autocmd("CursorHold", {
--- 	buffer = bufnr,
--- 	callback = function()
--- 		local opts = {
--- 			focusable = false,
--- 			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
--- 			border = 'rounded',
--- 			source = 'always',
--- 			prefix = ' ',
--- 			scope = 'cursor',
--- 		}
--- 		vim.diagnostic.open_float(nil, opts)
--- 	end
--- })
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "󰋼",
+			[vim.diagnostic.severity.HINT] = "󰌵",
+		},
+	},
+	underline = true,
+	jump = {
+		float = true,
+	},
+}

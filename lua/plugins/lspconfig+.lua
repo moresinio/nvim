@@ -1,10 +1,9 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		enabled = true,
 		event = "BufAdd",
 		dependencies = {
-			"nlsp-settings.nvim",
-			--"hrsh7th/cmp-nvim-lsp",
 			"williamboman/mason-lspconfig.nvim",
 			"williamboman/mason.nvim",
 		},
@@ -27,11 +26,5 @@ return {
 		config = function()
 			require('plugins.LSP.lspset')
 		end
-	},
-	--
-	{
-		"tamago324/nlsp-settings.nvim",
-		enabled = false,
-		cmd = "LspSettings",
 	},
 }
