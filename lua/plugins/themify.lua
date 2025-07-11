@@ -20,6 +20,7 @@ return {
 					},
 					overrides = {
 						['WinSeparator'] = { bg = '#1b172b' },
+						['WinBar'] = { bg = '#1b172b' },
 						['FloatBorder'] = { bg = '#241b2f' },
 						['TelescopeBorder'] = { bg = '#241b2f', fg = '#8c57c7' },
 						['YaziFloat'] = { bg = '#241b2f' },
