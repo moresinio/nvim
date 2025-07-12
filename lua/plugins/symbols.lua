@@ -1,5 +1,6 @@
 return {
 	"oskarrrrrrr/symbols.nvim",
+	enabled = true,
 	cmd = "Symbols toggle",
 	keys = {
 		{ "<leader>ts", "<cmd>SymbolsToggle<cr>", desc = "Toggle symbols" },

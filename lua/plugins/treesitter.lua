@@ -1,5 +1,6 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
+	enabled = true,
 	event = "BufAdd",
 	config = function()
 		require 'nvim-treesitter.configs'.setup {
