@@ -11,6 +11,14 @@ return {
 		require('blink.cmp').setup({
 			keymap = { preset = 'default' },
 
+			cmdline = {
+				enabled = true,
+				completion = {
+					menu = {
+						auto_show = true,
+					},
+				},
+			},
 			signature = {
 				enabled = true,
 				window = {
@@ -18,10 +26,9 @@ return {
 				},
 			},
 
-		 -- sources = {
-		 -- 	default = { 'lsp', 'path', 'snippets', 'buffer' },
-		 -- 	cmdline = {},
-		 -- },
+		  sources = {
+		  	default = { 'lsp', 'path', 'snippets', 'buffer' },
+		  },
 
 		  completion = {
 		  	list = {

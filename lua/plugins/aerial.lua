@@ -1,5 +1,6 @@
 return {
 	enabled = false,
+	event = "BufAdd",
 	'stevearc/aerial.nvim',
 	config = function()
 		require("aerial").setup({

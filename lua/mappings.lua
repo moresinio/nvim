@@ -72,7 +72,6 @@ wk.add({
 	{ "<leader>;",  "<cmd>lua require'snacks'.dashboard.open()<CR>",      desc = "Dashboard" },
 	{ "<leader>n",  "<cmd>lua Snacks.picker.notifications()<CR>",      desc = "Notifications" },
 	{ "<leader>p",  "<cmd>lua Snacks.picker.pickers()<CR>",      desc = "Pickers" },
-	{ "<leader>o",  "<cmd>lua Snacks.picker.recent()<CR>",      desc = "Recent" },
 	{ "<leader>L",  "<cmd>Lazy<CR>",                                      desc = "Lazy" },
 
 	{ "<leader>a",  group = "Arduino" },
@@ -113,7 +112,7 @@ wk.add({
 		"<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
 		desc = "Colorscheme with Preview"
 	},
-	{ "<leader>sr", "<cmd>Telescope oldfiles<cr>",  desc = "Open Recent File" },
+	{ "<leader>o", "<cmd>Telescope oldfiles<cr>",  desc = "Open Recent File" },
 	{ "<leader>st", "<cmd>Telescope live_grep<cr>", desc = "Text" },
 	{ "<leader>sT", "<cmd>Telescope heading<cr>", desc = "Heading" },
 })

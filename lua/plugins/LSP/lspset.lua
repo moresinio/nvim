@@ -1,14 +1,14 @@
 local lspconfig = require('lspconfig')
 
-lspconfig.clangd.setup {
-	settings = {
-		['clangd'] = {
-			InlayHints = {
-				Enabled = true,
-			}
-		},
-	},
-}
+--lspconfig.clangd.setup {
+--	settings = {
+--		['clangd'] = {
+--			InlayHints = {
+--				Enabled = true,
+--			}
+--		},
+--	},
+--}
 
 --require("clangd_extensions.inlay_hints").setup_autocmd()
 --require("clangd_extensions.inlay_hints").set_inlay_hints()
@@ -19,24 +19,28 @@ lspconfig.bashls.setup {
 		},
 	},
 }
+
 lspconfig.pyright.setup {
 	settings = {
 		['pyright'] = {
 		},
 	},
 }
+
 --lspconfig.cssls.setup {
 --	settings = {
 --		['cssls'] = {
 --		},
 --	},
 --}
-lspconfig.lua_ls.setup {
-	settings = {
-		['lua_ls'] = {
-		},
-	},
-}
+
+--lspconfig.lua_ls.setup {
+--	settings = {
+--		['lua_ls'] = {
+--		},
+--	},
+--}
+
 --lspconfig.marksman.setup {
 --	settings = {
 --		['marksman'] = {
@@ -97,6 +101,7 @@ vim.diagnostic.config {
 		focusable = false,
 		style = 'minimal',
 		border = 'rounded',
+		source = "always",
 		header = '',
 		prefix = '',
 	},

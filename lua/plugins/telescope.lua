@@ -7,17 +7,17 @@ return {
 	{
 		'nvim-telescope/telescope-fzf-native.nvim',
 		build =
-		'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+		'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && cmake --build build --config Release && cmake --install build --prefix build'
 	},
 
 	{
 		'nvim-telescope/telescope.nvim',
-		--event = "VeryLazy",
+		event = "VeryLazy",
 		dependencies = { { 'nvim-lua/plenary.nvim' }, "telescope-fzf-native.nvim" },
-		--		cmd = "Telescope oldfiles",
-		-- 	keys = {
-		-- 		{ "<leader>o", "<cmd>Telescope oldfiles<cr>", desc = "OldFiles" },
-		-- 	},
+				cmd = "Telescope oldfiles",
+		 	keys = {
+		 		{ "<leader>o", "<cmd>Telescope oldfiles<cr>", desc = "OldFiles" },
+		 	},
 		config = function()
 			local actions = require("telescope.actions")
 			require("telescope").setup {

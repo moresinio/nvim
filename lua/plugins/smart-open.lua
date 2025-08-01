@@ -1,6 +1,6 @@
 return {
   "danielfalk/smart-open.nvim",
-	enabled = false,
+	enabled = true,
   branch = "0.2.x",
 	event = "InsertEnter",
   config = function()

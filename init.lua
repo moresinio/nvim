@@ -8,6 +8,5 @@ require("lazyIn")
 require('mappings')
 require("autocmd")
 
--- code
  require('langmapper').automapping({ global = true, buffer = true })
 -- end of init.lua

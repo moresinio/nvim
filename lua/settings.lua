@@ -71,7 +71,7 @@ opt.smartindent = true             -- Instert indent automatically
 opt.undolevels = 10000
 opt.virtualedit = "block"          -- Allow cursor to move where there is not text in visual block mode
 opt.wildmode = "longest:full,full" -- Command line completion mode
-opt.smoothscroll = true
+opt.smoothscroll = false
 
 -- Подсветка строки с курсором
 opt.cursorline = false
@@ -99,13 +99,13 @@ vim.opt.listchars:append "eol:↴"
 
 vim.opt.whichwrap:append("<,>,[,],h,l")
 
-opt.foldenable = true
-opt.foldcolumn = "1"
-opt.foldlevel = 99
-opt.foldlevelstart = 99
---opt.foldmethod = "syntax"
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldtext = require("modules.foldtext")
+--opt.foldenable = true
+--opt.foldcolumn = "1"
+--opt.foldlevel = 99
+--opt.foldlevelstart = 99
+----opt.foldmethod = "syntax"
+--opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+--opt.foldtext = require("modules.foldtext")
 
 --opt.winbar = " "
 cmd("autocmd BufEnter * set fo-=c fo-=r fo-=o") -- Отключить автоматическое комментирование при переходе на следующую строку
