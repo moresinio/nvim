@@ -38,9 +38,9 @@ return {
 		},
 
 		"lunarvim/synthwave84.nvim",
-    "samharju/synthweave.nvim",
+		"samharju/synthweave.nvim",
 		"Mofiqul/dracula.nvim",
-	--	"lmburns/kimbox",
+		--	"lmburns/kimbox",
 		"folke/tokyonight.nvim",
 		"eldritch-theme/eldritch.nvim",
 		{
