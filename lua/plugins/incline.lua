@@ -1,6 +1,6 @@
 return {
 	'b0o/incline.nvim',
-	enabled = false,
+	enabled = true,
 	ft = "arduino",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
